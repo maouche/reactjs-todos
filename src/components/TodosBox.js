@@ -23,7 +23,7 @@ function TodosBox () {
 
 	return (
 		<div className="box">
-			<h1 className="title">todos.length(s) left</h1>
+			<h1 className="title">{todos.length} todo(s) left</h1>
 			<form className="form" onSubmit={(e) => handleSubmit(e)}>
 				<input className="input" type="text" value={input} onChange={(e) => handleChange(e)} />
 				<button type="submit" className="btn" onClick={handleSubmit}>Add</button>

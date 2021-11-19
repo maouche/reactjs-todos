@@ -45,9 +45,9 @@ function TodosBox () {
 			<ul className="list">
 				{todos.map((todo, index) =>
 					<li className="item" key={index}>
-						<input className="checkbox" id={"checkbox" + index} type="checkbox" onClick={(e) => changeDone(e, index)} />
+						<input id={"checkbox" + index} type="checkbox" onClick={(e) => changeDone(e, index)} />
 						<label htmlFor={"checkbox" + index} className={"text" + (todo.done ? " active" : "")}>
-							<span className={"boxx" + (todo.done ? " checked" : "")}></span>
+							<span className={"checkbox" + (todo.done ? " checked" : "")}></span>
 							{todo.text}
 						</label>
 						<button className="btn danger" onClick={(e) => handleRemove(e, index)}>Delete</button>

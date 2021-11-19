@@ -99,7 +99,7 @@ code {
 .item + .item {
   border-top: 1px solid #f2a899;
 }
-.checkbox {
+.item input {
   display: none;
 }
 .text {
@@ -123,14 +123,7 @@ code {
 .text.active:hover {
   opacity: 1;
 }
-
-/*$light-pink: rgb(255, 240, 245);
-$pink: rgb(255, 227, 227);
-$green: #58a79e;
-$font: "Caladea", serif;
-$peach: #f2a899;
-$purple: #73204f;*/
-span.boxx {
+span.checkbox {
   border-radius: 6px;
   border: 2px solid #f2a899;
   width: 26px;
@@ -138,7 +131,7 @@ span.boxx {
   transition: 0.3s ease;
   margin-right: 10px;
 }
-span.boxx::before, span.boxx::after {
+span.checkbox::before, span.checkbox::after {
   content: "";
   position: absolute;
   width: 4px;
@@ -147,22 +140,22 @@ span.boxx::before, span.boxx::after {
   background: white;
   transition: all 0.3s ease;
 }
-span.boxx::before {
+span.checkbox::before {
   transform: rotate(45deg) translateY(-5px) translateX(10px) scale(0);
 }
-span.boxx::after {
+span.checkbox::after {
   height: 8px;
   transform: rotate(-45deg) translateY(10px) translateX(-4px) scale(0);
 }
-span.boxx.checked {
+span.checkbox.checked {
   background: #73204f;
   border-color: #73204f;
 }
-span.boxx.checked::before {
+span.checkbox.checked::before {
   height: 20px;
   transform: rotate(45deg) translateY(0px) translateX(2px) scale(1);
 }
-span.boxx.checked::after {
+span.checkbox.checked::after {
   height: 10px;
   transform: rotate(-45deg) translateY(0px) translateX(-12px) scale(1);
 }

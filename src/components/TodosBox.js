@@ -3,6 +3,7 @@ import { useState } from "react";
 function TodosBox () {
 	const [input, setInput] = useState("");
 	const [todos, setTodos] = useState([]);
+	const [filter, setFilter] = useState(0);
 
 	const handleChange = function (e) {
 		setInput(input => e.target.value)
@@ -36,22 +37,36 @@ function TodosBox () {
 		})
 	}
 
+	const renderTodo = function (todo, index) {
+		if ( (filter == 0) || (filter == 1 && todo.done == false) || (filter == 2 && todo.done == true) )  {
+			return (
+				<li className="item" key={index}>
+					<input id={"checkbox" + index} type="checkbox" onClick={(e) => changeDone(e, index)} />
+					<label htmlFor={"checkbox" + index} className={"text" + (todo.done ? " active" : "")}>
+						<span className={"checkbox" + (todo.done ? " checked" : "")}></span>
+						{todo.text}
+					</label>
+					<button className="btn danger" onClick={(e) => handleRemove(e, index)}>Delete</button>
+				</li>
+			)
+		}
+	}
+
 	return (
 		<div className="box">
 			<h1 className="title">{todos.length} todo(s) left</h1>
 			<form className="form" onSubmit={(e) => handleSubmit(e)}>
 				<input className="input" type="text" value={input} onChange={(e) => handleChange(e)} placeholder="What needs to be done ?" />
 			</form>
+			<div className="filter">
+				<button className="btn" onClick={(e) => setFilter(filter => 0)}>All</button>
+				<button className="btn" onClick={(e) => setFilter(filter => 1)}>Unfinished</button>
+				<button className="btn" onClick={(e) => setFilter(filter => 2)}>Finished</button>
+			</div>
 			<ul className="list">
 				{todos.map((todo, index) =>
-					<li className="item" key={index}>
-						<input id={"checkbox" + index} type="checkbox" onClick={(e) => changeDone(e, index)} />
-						<label htmlFor={"checkbox" + index} className={"text" + (todo.done ? " active" : "")}>
-							<span className={"checkbox" + (todo.done ? " checked" : "")}></span>
-							{todo.text}
-						</label>
-						<button className="btn danger" onClick={(e) => handleRemove(e, index)}>Delete</button>
-					</li>)}
+					renderTodo(todo, index)
+				)}
 			</ul>
 		</div>
 	);

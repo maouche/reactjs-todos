@@ -46,7 +46,7 @@ function TodosBox () {
 						<span className={"checkbox" + (todo.done ? " checked" : "")}></span>
 						{todo.text}
 					</label>
-					<button className="btn danger" onClick={(e) => handleRemove(e, index)}>Delete</button>
+					<button className="btn danger" onClick={(e) => handleRemove(e, index)}><span className="fa fa-remove"></span></button>
 				</li>
 			)
 		}
@@ -58,10 +58,10 @@ function TodosBox () {
 			<form className="form" onSubmit={(e) => handleSubmit(e)}>
 				<input className="input" type="text" value={input} onChange={(e) => handleChange(e)} placeholder="What needs to be done ?" />
 			</form>
-			<div className="filter">
-				<button className="btn" onClick={(e) => setFilter(filter => 0)}>All</button>
-				<button className="btn" onClick={(e) => setFilter(filter => 1)}>Unfinished</button>
-				<button className="btn" onClick={(e) => setFilter(filter => 2)}>Finished</button>
+			<div className="filters">
+				<button className={"btn" + (filter === 0 ? " active" : "")} onClick={(e) => setFilter(filter => 0)}>All</button>
+				<button className={"btn" + (filter === 1 ? " active" : "")} onClick={(e) => setFilter(filter => 1)}>Unfinished</button>
+				<button className={"btn" + (filter === 2 ? " active" : "")} onClick={(e) => setFilter(filter => 2)}>Finished</button>
 			</div>
 			<ul className="list">
 				{todos.map((todo, index) =>

@@ -81,9 +81,12 @@ code {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5) inset;
 }
 .btn.danger {
-  background: #d9534f;
+  background: transparent;
+  box-shadow: none;
 }
-
+.btn.danger span {
+  color: #d9534f;  
+}
 .list {
   list-style: none;
 }
@@ -158,4 +161,15 @@ span.checkbox.checked::before {
 span.checkbox.checked::after {
   height: 10px;
   transform: rotate(-45deg) translateY(0px) translateX(-12px) scale(1);
+}
+
+.filters button {
+  color: #73204f;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.filters button.active {
+  color: white;
+  background-color: #73204f;
 }

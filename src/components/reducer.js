@@ -6,8 +6,8 @@ function reducer(state, action) {
 			return [action.item, ...state];
 		case "update" :
 			const newStateAdd = [];
-			state.map((item) => {
-				if ( item.id == action.item.id ) {
+			state.forEach((item) => {
+				if ( item.id === action.item.id ) {
 					newStateAdd.push({...item, ...action.item});
 				} else {
 					newStateAdd.push(item);

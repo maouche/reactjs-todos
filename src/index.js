@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+
+
 import TodosBox from "./components/TodosBox";
 
 import "./css/todos.css";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <TodosBox />
-  </React.StrictMode>,
-  document.getElementById('root')
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
+  <TodosBox />
 );

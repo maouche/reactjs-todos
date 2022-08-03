@@ -15,7 +15,7 @@ function TodosBox () {
 	function getItems() {
 		axios({
 		  method: 'get',
-		  url: 'https://shy-red-cougar-sari.cyclic.app/api/v1/todos/'
+		  url: 'https://shy-red-cougar-sari.cyclic.app:4000/api/v1/todos/'
 		})
 		.then(function (response) {
 		  dispatch({type: "fetch", items: response.data});
@@ -32,7 +32,7 @@ function TodosBox () {
 			const item = {"title": input, completed: false, created_at: Date.now()}
 			axios({
 			  method: 'post',
-			  url: 'https://shy-red-cougar-sari.cyclic.app/api/v1/todos/',
+			  url: 'https://shy-red-cougar-sari.cyclic.app:4000/api/v1/todos/',
 			  data: item
 			})
 			.then(function (response) {
@@ -46,7 +46,7 @@ function TodosBox () {
 		e.preventDefault()
 		axios({
 		  method: 'delete',
-		  url: 'https://shy-red-cougar-sari.cyclic.app/api/v1/todos/',
+		  url: 'https://shy-red-cougar-sari.cyclic.app:4000/api/v1/todos/',
 		  data: {id}
 		})
 		.then(function (response) {
@@ -59,7 +59,7 @@ function TodosBox () {
 		const todo =  JSON.parse('{"id":"' + item.id + '", "title":"' + item.title + '", "completed": ' + !item.completed + '}');
 		axios({
 		  method: 'put',
-		  url: 'https://shy-red-cougar-sari.cyclic.app/api/v1/todos/',
+		  url: 'https://shy-red-cougar-sari.cyclic.app:4000/api/v1/todos/',
 		  data: todo
 		})
 		.then(function (response) {
